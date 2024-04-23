@@ -1,34 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --green: hsl(210, 100%, 56%);
+  --handwriting: 'Homemade Apple';
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: black;
+  color: aliceblue;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choose-container {
+  width: 1/4;
+  border-right: 4px solid white;
+  height: 100vh;
+  padding: 2%;
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid white;
+}
+
+.save-button {
+  border: 1px solid white;
+  padding: 20px;
+  transition: background-color 0.8s ease;
+  top: 0;
+}
+
+.save-button:hover {
+  background-color: greenyellow;
+  color: black;
+  border: none;
+  cursor: pointer;
 }
