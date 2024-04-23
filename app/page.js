@@ -4,10 +4,17 @@ import HeaderBox from './components/HeaderBox'
 import Draggable from './components/Draggable'
 import Droppable from './components/Droppable'
 import { DndContext } from '@dnd-kit/core'
+import Popup from './components/Popup'
 import React, { useState } from 'react'
 
 export default function Home() {
   const [parent, setParent] = useState(null)
+  const [isPopupOpen, setPopupOpen] = useState(false)
+
+  const togglePopup = () => {
+    setPopupOpen(!isPopupOpen)
+  }
+
   const draggable = <Draggable id="draggable">Go ahead, drag me.</Draggable>
 
   function handleDragEnd({ over }) {
@@ -35,7 +42,10 @@ export default function Home() {
         </div>
 
         <div className="flex-item">
-          <button className="save-button">Save</button>
+          <button onClick={togglePopup} className="save-button">
+            Save
+          </button>
+          <Popup isOpen={isPopupOpen} onClose={togglePopup} />
         </div>
       </DndContext>
     </main>

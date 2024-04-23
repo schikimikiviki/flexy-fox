@@ -39,11 +39,13 @@ body {
 }
 
 .save-button {
-  border: 1px solid white;
+  border: 1px solid black;
   background-color: var(--orange-bright);
   padding: 20px;
   transition: background-color 0.8s ease;
   top: 0;
+  margin-left: 80%;
+  margin-top: 5%;
 }
 
 .save-button:hover {
@@ -51,4 +53,30 @@ body {
   color: black;
   border: none;
   cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1000; /* Ensure it's on top of other content */
+  display: flex;
+  justify-content: flex-end; /* Align popup to the right */
+  align-items: center;
+}
+
+.popup {
+  width: 25%; /* Width of 1/4 of the screen */
+  height: 100%; /* Height of the whole screen */
+  background-color: white; /* Background color of the popup */
+  padding: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
