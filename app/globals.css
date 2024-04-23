@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
 :root {
-  --green: hsl(210, 100%, 56%);
+  --pink: #ff70a6;
+  --blue: #70d6ff;
+  --orange: #ff9770;
+  --orange-bright: #ffd670;
+  --yellow: #e9ff70;
   --handwriting: 'Homemade Apple';
 }
 
@@ -14,13 +18,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100vh;
+}
+
+.flex-item {
+  flex: 1;
+  height: 100%;
 }
 
 .choose-container {
   width: 1/4;
   border-right: 4px solid white;
-  height: 100vh;
-  padding: 2%;
 }
 
 .header-main {
@@ -32,13 +40,14 @@ body {
 
 .save-button {
   border: 1px solid white;
+  background-color: var(--orange-bright);
   padding: 20px;
   transition: background-color 0.8s ease;
   top: 0;
 }
 
 .save-button:hover {
-  background-color: greenyellow;
+  background-color: var(--orange);
   color: black;
   border: none;
   cursor: pointer;

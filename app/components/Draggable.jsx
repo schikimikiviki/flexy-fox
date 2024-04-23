@@ -9,7 +9,7 @@ const Draggable = (props) => {
   const style = {
     // Outputs `translate3d(x, y, 0)`
     transform: CSS.Translate.toString(transform),
-    background: 'orange',
+    background: 'var(--orange)',
     width: '150px',
     height: '150px',
     color: 'black',

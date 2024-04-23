@@ -16,23 +16,29 @@ export default function Home() {
 
   return (
     <main className="main-container">
-      <DndContext onDragEnd={handleDragEnd}>
-        <div className="choose-container">
-          <HeaderBox />
-          <div>
-            <h1>Sketch your site with containers</h1>
-            <br />
-            <h2>Drag children to the parent container on the right</h2>
-            {!parent ? draggable : null}
-            <h2>Finished ? Hit the save button in the top right corner.</h2>
-          </div>
+      <DndContext>
+        <div className="choose-container flex-item">
+          <DndContext onDragEnd={handleDragEnd}>
+            <HeaderBox />
+            <div>
+              <h1>Sketch your site with containers</h1>
+              <br />
+              <h2>Drag children to the parent container on the right</h2>
+              {!parent ? draggable : null}
+              <h2>Finished ? Hit the save button in the top right corner.</h2>
+            </div>
+          </DndContext>
         </div>
 
-        <Droppable id="droppable" style={{ height: '100vh' }}>
-          {parent === 'droppable' ? draggable : 'Drop here'}
-        </Droppable>
+        <div className="flex-item">
+          <DndContext>
+            <Droppable id="droppable" style={{ height: '100vh' }}>
+              {parent === 'droppable' ? draggable : 'Drop here'}
+            </Droppable>
+          </DndContext>
+        </div>
 
-        <div>
+        <div className="flex-item">
           <button className="save-button">Save</button>
         </div>
       </DndContext>

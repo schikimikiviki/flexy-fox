@@ -6,12 +6,11 @@ const Droppable = (props) => {
     id: props.id,
   })
   const style = {
-    opacity: isOver ? 0.5 : 0.8,
-    background: 'yellow',
+    background: 'var(--yellow)',
     padding: '20px',
     color: 'black',
-    height: '100vh',
-    width: '50vw',
+    width: '90%',
+    height: '100%',
   }
 
   return (
