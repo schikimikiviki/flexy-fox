@@ -9,7 +9,7 @@ const Droppable = (props) => {
     background: 'var(--yellow)',
     padding: '20px',
     color: 'black',
-    width: '90%',
+    width: '100%',
     height: '100%',
   }
 
