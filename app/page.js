@@ -14,6 +14,7 @@ export default function Home() {
 
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen)
+    console.log(inputRef.current)
   }
 
   const handleChange = (event) => {
@@ -118,7 +119,11 @@ export default function Home() {
         <button onClick={togglePopup} className="save-button">
           Save
         </button>
-        <Popup isOpen={isPopupOpen} onClose={togglePopup} />
+        <Popup
+          isOpen={isPopupOpen}
+          onClose={togglePopup}
+          data={inputRef.current}
+        />
       </div>
     </div>
   )

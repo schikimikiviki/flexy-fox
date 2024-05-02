@@ -58,6 +58,19 @@ body {
   margin-top: 5%;
 }
 
+.regular-button {
+  border: 1px solid black;
+  background-color: var(--orange-bright);
+  padding: 10px;
+  transition: background-color 0.8s ease;
+}
+
+.regular-button:hover {
+  background-color: var(--orange);
+  color: black;
+  cursor: pointer;
+}
+
 .save-button:hover {
   background-color: var(--orange);
   color: black;

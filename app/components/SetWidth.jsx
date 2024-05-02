@@ -39,7 +39,9 @@ const SetWidth = (props) => {
           </div>
         ))}
         <br />
-        <button type="submit">Submit</button>
+        <button className="regular-button" type="submit">
+          Submit row
+        </button>
       </form>
     </div>
   )
