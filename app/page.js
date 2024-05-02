@@ -34,7 +34,10 @@ export default function Home() {
 
   return (
     <div className="main-container">
-      <div className="choose-container flex-item">
+      <div
+        className="choose-container flex-item "
+        style={{ height: '100vh', overflow: 'auto' }}
+      >
         <HeaderBox />
         <div>
           <h1>Sketch your site with containers</h1>

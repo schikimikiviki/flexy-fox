@@ -29,6 +29,16 @@ body {
 .choose-container {
   width: 1/4;
   border-right: 4px solid white;
+  padding-right: 10px;
+}
+
+.choose-container::-webkit-scrollbar {
+  display: none;
+}
+
+.choose-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .header-main {

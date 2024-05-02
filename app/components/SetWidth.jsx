@@ -22,19 +22,25 @@ const SetWidth = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      {[...Array(numberOfSettings).keys()].map((number) => (
-        <div key={number + 1}>
-          <p>Width for child {number + 1} </p>
-          <input
-            type="text"
-            name={`child${number + 1}`}
-            onChange={handleChange}
-          />
-        </div>
-      ))}
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <h2 style={{ color: 'var(--orange-bright)' }}>
+        Set the width of each child element in % or in fractures
+      </h2>
+      <form onSubmit={handleSubmit}>
+        {[...Array(numberOfSettings).keys()].map((number) => (
+          <div key={number + 1}>
+            <p>Width for child {number + 1} </p>
+            <input
+              type="text"
+              name={`child${number + 1}`}
+              onChange={handleChange}
+            />
+          </div>
+        ))}
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   )
 }
 
