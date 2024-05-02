@@ -9,7 +9,8 @@ export default function Home() {
   const [isPopupOpen, setPopupOpen] = useState(false)
   const [selectedNumber, setSelectedNumber] = useState(0)
   const inputRef = useRef(null)
-  const [initialWidth, setInitialWidth] = useState(0)
+  const [initialWidth, setInitialWidth] = useState([])
+  const [pageWidth, setPageWidth] = useState(0) // backend setting invisible to users
 
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen)
@@ -23,14 +24,35 @@ export default function Home() {
     // create divs and put them into the page container
     if (inputRef.current) {
       let pageMaxWidth = inputRef.current.clientWidth
+      setPageWidth(pageMaxWidth)
 
       if (selectedNumber > 0) {
         let widthSingleElement = pageMaxWidth / selectedNumber
-        console.log('initial width set to: ', widthSingleElement)
-        setInitialWidth(widthSingleElement)
+
+        const initialWidthArray = Array.from({ length: selectedNumber }).fill(
+          widthSingleElement
+        )
+
+        console.log('initial width set to: ', initialWidthArray)
+
+        setInitialWidth(initialWidthArray)
       }
     }
   }, [selectedNumber])
+
+  const updateWidths = (value) => {
+    //calculate percentages
+
+    let newWidthArray = []
+
+    for (let i in value) {
+      console.log(i)
+      let actualWidth = (pageWidth * value[i]) / 100
+      newWidthArray.push(actualWidth)
+    }
+
+    setInitialWidth(newWidthArray)
+  }
 
   return (
     <div className="main-container">
@@ -60,7 +82,10 @@ export default function Home() {
           </select>
 
           {selectedNumber > 0 ? (
-            <SetWidth selectedNumber={selectedNumber} />
+            <SetWidth
+              selectedNumber={selectedNumber}
+              sendToParent={updateWidths}
+            />
           ) : null}
 
           <h2 style={{ color: 'var(--orange-bright)' }}>

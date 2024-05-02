@@ -11,14 +11,15 @@ const SetWidth = (props) => {
       .filter((element) => element.type === 'text')
       .map((element) => parseInt(element.value, 10))
     setWidths(values)
+    props.sendToParent(values)
   }
 
-  useEffect(() => {
-    console.log(widths)
-  }, [widths])
+  //   useEffect(() => {
+  //     console.log(widths)
+  //   }, [widths])
 
   const handleChange = (event) => {
-    // You can handle input changes here if needed
+    //  handle input changes here if needed
   }
 
   return (
