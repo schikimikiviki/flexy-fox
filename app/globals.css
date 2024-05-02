@@ -51,7 +51,6 @@ body {
 .save-button:hover {
   background-color: var(--orange);
   color: black;
-  border: none;
   cursor: pointer;
 }
 
@@ -61,17 +60,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  z-index: 1000; /* Ensure it's on top of other content */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
   display: flex;
-  justify-content: flex-end; /* Align popup to the right */
+  justify-content: flex-end;
   align-items: center;
 }
 
 .popup {
-  width: 25%; /* Width of 1/4 of the screen */
-  height: 100%; /* Height of the whole screen */
-  background-color: white; /* Background color of the popup */
+  width: 25%;
+  height: 100%;
+  background-color: white;
   padding: 20px;
 }
 
@@ -79,4 +78,8 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.page-area {
+  margin-left: 50px;
 }
