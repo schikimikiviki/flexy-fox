@@ -11,10 +11,26 @@ export default function Home() {
   const inputRef = useRef(null)
   const [initialWidth, setInitialWidth] = useState([])
   const [pageWidth, setPageWidth] = useState(0) // backend setting invisible to users
+  const [parentCode, setParentCode] = useState('')
 
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen)
-    console.log(inputRef.current)
+
+    const computedStyle = getComputedStyle(inputRef.current)
+
+    const desiredProperties = ['width', 'height', 'display']
+
+    let cssText = ''
+
+    for (let i = 0; i < computedStyle.length; i++) {
+      const propertyName = computedStyle[i]
+      if (desiredProperties.includes(propertyName)) {
+        const propertyValue = computedStyle.getPropertyValue(propertyName)
+        cssText += `${propertyName}: ${propertyValue};\n`
+      }
+    }
+
+    setParentCode(cssText)
   }
 
   const handleChange = (event) => {
@@ -34,8 +50,6 @@ export default function Home() {
           widthSingleElement
         )
 
-        console.log('initial width set to: ', initialWidthArray)
-
         setInitialWidth(initialWidthArray)
       }
     }
@@ -47,7 +61,6 @@ export default function Home() {
     let newWidthArray = []
 
     for (let i in value) {
-      console.log(i)
       let actualWidth = (pageWidth * value[i]) / 100
       newWidthArray.push(actualWidth)
     }
@@ -119,11 +132,7 @@ export default function Home() {
         <button onClick={togglePopup} className="save-button">
           Save
         </button>
-        <Popup
-          isOpen={isPopupOpen}
-          onClose={togglePopup}
-          data={inputRef.current}
-        />
+        <Popup isOpen={isPopupOpen} onClose={togglePopup} data={parentCode} />
       </div>
     </div>
   )
